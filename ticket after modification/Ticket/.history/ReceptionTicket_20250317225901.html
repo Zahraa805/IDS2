@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetion-view</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="ReceptionTicket.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center">
+        <img src="logo.png" alt="logo" class="mb-3">
+        <img src="assiut.png" alt="assiut" id="assiut" class="position-absolute top-0 start-0">
+        <img src="teeth.png" alt="teeth" id="teeth" class="position-absolute top-0 end-0">
+        
+        <h1 class="text-primary">Free Clinics Admission From OutPatient</h1>
+        <h2 id="fill" class="text-secondary">إستمارة دخول بالمجان للعيادات الخارجية</h2>
+    
+        <div class="date-container my-3">
+            <label class="fw-bold">تاريخ الكشف:</label>
+            <input type="date" name="تاريخ الكشف" class="form-control date-input">
+        </div>
+
+        <form asp-action="CreateTicketForNewPatient" method="post" class="row g-3 justify-content-center">
+            <div class="container2 col-md-8 p-4 shadow rounded bg-white">
+                <h2 class="text-center text-decoration-underline">البيانات الشخصية</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">الاسم رباعي:</label>
+                        <input asp-for="Name" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">العنوان:</label>
+                        <input asp-for="Address" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">رقم الهاتف:</label>
+                        <input asp-for="phoneNumber" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">المهنة:</label>
+                        <input asp-for="profession" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">الرقم القومي:</label>
+                        <input asp-for="PatientId" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">النوع:</label>
+                        <select asp-for="Gender" class="form-control">
+                            <option value="Male">ذكر</option>
+                            <option value="Female">أنثى</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-bold">السن:</label>
+                        <input asp-for="Age" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-5">حفظ و إرسال</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

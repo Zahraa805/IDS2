@@ -1,0 +1,231 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\IDS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\IDS\\IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\IDS\\IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\views\\reception\\receptionticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\views\\reception\\receptionticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\views\\auth\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\views\\auth\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\wwwroot\\css\\receptionticket.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\wwwroot\\css\\receptionticket.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\wwwroot\\css\\addemployee.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\wwwroot\\css\\addemployee.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\models\\ticketaccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\models\\ticketaccountancy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\controllers\\receptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\controllers\\receptioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\models\\refferedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\models\\refferedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\views\\reception\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\views\\reception\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\wwwroot\\css\\error.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\wwwroot\\css\\error.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|d:\\ids\\ids\\views\\reception\\ticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62268E68-4030-4C56-A9BE-4D504F09692D}|IDS\\IDS.csproj|solutionrelative:ids\\views\\reception\\ticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250423100109_add-migration updateAccountancy.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs",
+              "RelativeDocumentMoniker": "IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs",
+              "RelativeToolTip": "IDS\\Migrations\\20250423100109_add-migration updateAccountancy.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwDgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T10:01:09.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250423095550_UpdateTicketAccountancy.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs",
+              "RelativeDocumentMoniker": "IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs",
+              "RelativeToolTip": "IDS\\Migrations\\20250423095550_UpdateTicketAccountancy.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T09:55:51.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReceptionTicket.css",
+              "DocumentMoniker": "D:\\IDS\\IDS\\wwwroot\\css\\ReceptionTicket.css",
+              "RelativeDocumentMoniker": "IDS\\wwwroot\\css\\ReceptionTicket.css",
+              "ToolTip": "D:\\IDS\\IDS\\wwwroot\\css\\ReceptionTicket.css",
+              "RelativeToolTip": "IDS\\wwwroot\\css\\ReceptionTicket.css",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAHsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-23T09:38:09.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddEmployee.css",
+              "DocumentMoniker": "D:\\IDS\\IDS\\wwwroot\\css\\AddEmployee.css",
+              "RelativeDocumentMoniker": "IDS\\wwwroot\\css\\AddEmployee.css",
+              "ToolTip": "D:\\IDS\\IDS\\wwwroot\\css\\AddEmployee.css",
+              "RelativeToolTip": "IDS\\wwwroot\\css\\AddEmployee.css",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-23T09:29:10.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Views\\Auth\\Edit.cshtml",
+              "RelativeDocumentMoniker": "IDS\\Views\\Auth\\Edit.cshtml",
+              "ToolTip": "D:\\IDS\\IDS\\Views\\Auth\\Edit.cshtml",
+              "RelativeToolTip": "IDS\\Views\\Auth\\Edit.cshtml",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAAIQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T09:18:50.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "IDS\\Models\\Ticket.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Models\\Ticket.cs",
+              "RelativeToolTip": "IDS\\Models\\Ticket.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T03:21:23.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TicketAccountancy.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Models\\TicketAccountancy.cs",
+              "RelativeDocumentMoniker": "IDS\\Models\\TicketAccountancy.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Models\\TicketAccountancy.cs",
+              "RelativeToolTip": "IDS\\Models\\TicketAccountancy.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T03:21:12.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RefferedTo.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Models\\RefferedTo.cs",
+              "RelativeDocumentMoniker": "IDS\\Models\\RefferedTo.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Models\\RefferedTo.cs",
+              "RelativeToolTip": "IDS\\Models\\RefferedTo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T03:14:37.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReceptionTicket.cshtml",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Views\\Reception\\ReceptionTicket.cshtml",
+              "RelativeDocumentMoniker": "IDS\\Views\\Reception\\ReceptionTicket.cshtml",
+              "ToolTip": "D:\\IDS\\IDS\\Views\\Reception\\ReceptionTicket.cshtml",
+              "RelativeToolTip": "IDS\\Views\\Reception\\ReceptionTicket.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T02:23:40.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Error.css",
+              "DocumentMoniker": "D:\\IDS\\IDS\\wwwroot\\css\\Error.css",
+              "RelativeDocumentMoniker": "IDS\\wwwroot\\css\\Error.css",
+              "ToolTip": "D:\\IDS\\IDS\\wwwroot\\css\\Error.css",
+              "RelativeToolTip": "IDS\\wwwroot\\css\\Error.css",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-23T02:02:25.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReceptionController.cs",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Controllers\\ReceptionController.cs",
+              "RelativeDocumentMoniker": "IDS\\Controllers\\ReceptionController.cs",
+              "ToolTip": "D:\\IDS\\IDS\\Controllers\\ReceptionController.cs",
+              "RelativeToolTip": "IDS\\Controllers\\ReceptionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T01:30:31.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Ticket.cshtml",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Views\\Reception\\Ticket.cshtml",
+              "RelativeDocumentMoniker": "IDS\\Views\\Reception\\Ticket.cshtml",
+              "ToolTip": "D:\\IDS\\IDS\\Views\\Reception\\Ticket.cshtml",
+              "RelativeToolTip": "IDS\\Views\\Reception\\Ticket.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T00:59:30.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\IDS\\IDS\\Views\\Reception\\Index.cshtml",
+              "RelativeDocumentMoniker": "IDS\\Views\\Reception\\Index.cshtml",
+              "ToolTip": "D:\\IDS\\IDS\\Views\\Reception\\Index.cshtml",
+              "RelativeToolTip": "IDS\\Views\\Reception\\Index.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAKQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T00:59:22.452Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

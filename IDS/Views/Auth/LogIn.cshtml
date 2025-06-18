@@ -1,0 +1,82 @@
+﻿@model IDS.Models.ViewModels.LogInVm
+
+@{
+    ViewData["Title"] = "SignUp Page";
+}
+
+@{
+    //ViewData["Title"] = ViewBag.thePluralEntity;
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>تسجيل الدخول | IDS</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="~/css/LogIn.css" rel="stylesheet">
+   
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="~/Icons/FOfDentist.jpg">
+        </div>
+        <div class="UniversityLogo">
+            <img src="~/Icons/logo-aun.png">
+        </div>
+    </header>
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+  
+    </div>
+    <form asp-action="LogIn" method="post">
+        <div class="form-logo">
+            <img src="~/Icons/logo.png" alt="IDS Logo">
+        </div>
+
+        <h3>أهلاً بكم</h3>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger" style="padding: 15px;">
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        if (error.ErrorMessage != "")
+                        {
+                            <li>@error.ErrorMessage</li>
+                            break;
+                        }
+                    }
+                </ul>
+            </div>
+        }
+
+        <label for="UserName">اسم المستخدم</label>
+        <input asp-for="UserName" type="text" placeholder="البريد الإلكتروني أو رقم الهاتف">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+
+        <label for="Password">كلمة المرور</label>
+        <input asp-for="Password" type="password" placeholder="كلمة المرور">
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+        <button type="submit">تسجيل الدخول</button>
+
+        <!-- Footer paragraph inside the form -->
+        <p class="form-footer">جميع الحقوق محفوظة لفريق IDS 2025</p>
+    </form>
+
+
+
+
+@*     <footer>
+        <p>جميع الحقوق محفوظة لفريق IDS 2025</p>
+    </footer> *@
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<IDS.Models.ApplicationUser>
+
+@{
+    Layout = null;
+}
+
+
+<input id="controllerName" type="hidden" value="@ViewBag.controllerName">
+<input id="baseUrl" type="hidden" value="@Url.Content("~/")">
+
+
+<div class="container">
+    <div class="search-bar">
+        <input id="searchBox" type="search" placeholder="ابحث عن @ViewBag.entity">
+
+
+        <a asp-controller="Auth" asp-action="SignUp" class="add-employee">تسجيل موظف جديد</a>
+    </div>
+
+    <div class="main-content">
+        <div class="employee-table" id="employeeTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>رقم الهاتف</th>
+                        <th>الرقم القومي</th>
+                        <th>البريد الإلكتروني</th>
+                        <th>الدور</th>
+                        <th>الإجراءات</th>
+
+                    </tr>
+                </thead>
+                <tbody id="entityTableBody">
+                    @foreach(var user in Model)
+                    {
+                    <tr>
+                            <td>@user.FullName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.NationalId</td>
+                            <td>@user.Email</td>
+                            <td>@user.Role</td>
+                        <td>
+
+
+                                <a asp-action="Details" asp-route-id="@user.Id" type="button" class="btn btn-dark edit-btn" style="text-decoration : none;">
+                                    كل التفاصيل
+                                </a>
+                               <a asp-action="Edit" asp-route-id="@user.Id" type="button" class="btn btn-dark edit-btn" style="text-decoration : none;">
+                                    تعديل
+                                </a>
+
+                                <button type="button" class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#myModalDelete_@user.Id">
+                                    حذف
+                                </button>
+
+                                <div class="modal fade" id="myModalDelete_@user.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="PopUpDiv">
+                                                    <form asp-controller="@ViewBag.controllerName" asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                                        <input type="hidden" asp-for="@user.Id" />
+
+                                                        <div class="mb-3">
+                                                            <h4>هل أنت متأكد أنك تريد حذف   @ViewBag.theEntity؟</h4>
+
+                                                            <p><strong>اسم  @ViewBag.theEntity:</strong> @user.UserName</p>
+                                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                                            <a class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</a>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/js/UserSearchHandler.js"></script>
+
+

@@ -1,0 +1,123 @@
+﻿<!-- @{
+    ViewData["Title"] = "Reception Page";
+}
+
+@{
+    //ViewData["Title"] = ViewBag.thePluralEntity;
+    Layout = null;
+} -->
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هيئه التسجيل و الإحصاء</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="~/css/Reception.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>مرحبًا بك في الصفحه الرئيسيه لهيئه التسجيل و الإحصاء </h1>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container d-flex align-items-center justify-content-center" style="margin-top: 100px;">
+        <div class="content-box">
+
+            <!-- Features Grid -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="feature-box clickable" data-controller="Reception" data-action="CreateTicketForNewPatient">
+                        <img src="~/Icons/consent.png" alt="الواقع المعزز" class="icon">
+
+                        <!-- @if (TempData["SuccessForNew"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["SuccessForNew"]
+                            </div>
+                        } -->
+                        <h3>تذكرة لزائر جديد</h3>
+                        <p>تسجيل بيانات زائر لأول مره</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box clickable" data-controller="Auth" data-action="ShowAll">
+                        <img src="~/Icons/manager.png" alt="آبل باي" class="icon">
+                        <h3>حسابي</h3>
+                        <p>عرض الحساب الشخصي</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box" data-controller="Reception" data-action="CreateTicketForExistingPatient">
+                        <img src="~/Icons/health.png" alt="آي كلاود" class="icon">
+
+                        <!-- @if (TempData["SuccessForExist"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["SuccessForExist"]
+                            </div>
+                        } -->
+                        <!-- @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                @TempData["SuccessForExist"]
+                            </div>
+                        } -->
+                        <h3>تذكره لزائر موجود</h3>
+                        <p>إذا كان الزائر مسجل من قبل ادخل الرقم القومي</p>
+
+                        <form asp-action="CreateTicketForExistingPatient" method="get">
+                            <input type="text" id="idInput" name="id" class="form-control" placeholder="الرقم القومي " required>
+                            <button type="submit" class="btn btn-dark mt-3">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box" data-controller="Auth" data-action="ShowAll">
+                        <img src="~/Icons/medical-history.png" alt="آي كلاود" class="icon">
+                        <h3>بحث عن التذكرة</h3>
+                        <p>من هنا يمكنك عرض بيانات التذكرة</p>
+
+                        <form>
+                            <input type="text" id="idInput" name="id" class="form-control" placeholder="رقم التذكرة" required>
+                            <button type="submit" class="btn btn-dark mt-3">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".clickable").forEach(app => {
+                app.addEventListener("click", function () {
+                    var controller = this.getAttribute("data-controller");
+                    var action = this.getAttribute("data-action");
+
+                    if (controller) {
+                        // Default to 'Index' if no action is provided
+                        action = action || "Index";
+
+                        // Use Razor to generate the URL dynamically
+                        var actionUrl = `@Url.Action("__ACTION__", "__CONTROLLER__")`
+                            .replace("__ACTION__", action)
+                            .replace("__CONTROLLER__", controller);
+
+                        window.location.href = actionUrl;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    

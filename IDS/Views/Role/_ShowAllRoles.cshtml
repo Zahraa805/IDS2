@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    ViewData["Title"] = "Roles Page";
+}
+
+@{
+    //ViewData["Title"] = ViewBag.thePluralEntity;
+    Layout = null;
+}
+
+
+
+
+<div class="container">
+    <div class="search-bar">
+        <input type="search" placeholder="أبحث عن موظف">
+
+        <button data-bs-toggle="modal" data-bs-target="#myModalAdd_" class="add-employee">تسجيل دور جديد</button>
+
+        <div class="modal fade" id="myModalAdd_" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="PopUpDiv">
+                            <form asp-controller="@ViewBag.controllerName" asp-action="Create" method="post">
+
+
+                                <div class="mb-3">
+                                    <h4>إضافة  @ViewBag.entity:</h4>
+                                    <label class="form-label"> @ViewBag.theEntity :</label>
+                                    <input type="text" class="form-control" id="name" name="Name" placeholder="مثلا: @ViewBag.placeHolder" required />
+                           
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block btn-submit but">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button style=" margin-left : auto;" type="button" class="btn btn-dark" data-bs-dismiss="modal">رجوع</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="employee-table" id="employeeTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الدور</th>
+
+                        <th>الإجراءات</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entity in Model)
+                    {
+                        <tr>
+                            <td>@entity.Name</td>
+                         
+                            <td>
+
+                                <button type="button" class="btn btn-dark edit-btn" data-bs-toggle="modal" data-bs-target="#myModalEdit_@entity.Id">
+                                    تعديل
+                                </button>
+
+                              <div class="modal fade" id="myModalEdit_@entity.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="PopUpDiv">
+                                                    <form asp-controller="@ViewBag.controllerName" asp-action="Edit" asp-route-id="@entity.Id" method="post">
+                                                        <input type="hidden" asp-for="@entity.Id" />
+
+                                                        <div class="mb-3">
+                                                            <h4>تعديل  @ViewBag.entity:</h4>
+                                                            <label class="form-label"> @ViewBag.theEntity :</label>
+                                                            <input type="text" class="form-control" id="name" name="Name" asp-for="@entity.Name" required />
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary btn-block btn-submit but">حفظ</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button style=" margin-left : auto;" type="button" class="btn btn-dark" data-bs-dismiss="modal">رجوع</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <button type="button" class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#myModalDelete_@entity.Id">
+                                    حذف
+                                </button>
+                               <div class="modal fade" id="myModalDelete_@entity.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="PopUpDiv">
+                                                    <form asp-controller="@ViewBag.controllerName" asp-action="Delete" asp-route-id="@entity.Id" method="post">
+                                                        <input type="hidden" asp-for="@entity.Id" />
+
+                                                        <div class="mb-3">
+                                                            <h4>هل أنت متأكد أنك تريد حذف   @ViewBag.theEntity؟</h4>
+
+                                                            <p><strong>اسم  @ViewBag.theEntity:</strong> @entity.Name</p>
+                                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                                            <a class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</a>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

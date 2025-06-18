@@ -1,0 +1,86 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: url("../Images/IdsBackGround.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    text-align: center;
+}
+
+    .form-container img {
+        width: 100px;
+        margin-bottom: 10px;
+    }
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    flex-basis: 48%; /* كل عنصرين بجانب بعض */
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+    .input-group i {
+        position: absolute;
+        right: 10px;
+        color: #666;
+    }
+
+    .input-group input, .input-group select {
+        width: 100%;
+        padding: 10px 35px 10px 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+.form-container input[type="submit"] {
+    background: #040443;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+input[type="submit"]:hover {
+    color: #fff;
+    background: #000;
+    box-shadow: 0 0 10px #2196f3,0 0 20px #2196f3, 0 0 30px #2196f3;
+    box-shadow: 5px 5px 20px rgba(4, 4, 67, 0.9), -5px -5px 10px rgba(255, 255, 255, 0.7); /* Add multiple shadows */
+
+
+}
+
+header {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+
+.logo img, .UniversityLogo img {
+    width: 80px;
+    height: 80px;
+}

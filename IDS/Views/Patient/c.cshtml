@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IDS.Models.Patient>
+
+@{
+    Layout = null;
+}
+
+
+@foreach (var entity in Model)
+{
+    <tr>
+        <td>@entity.Name</td>
+        <td>@entity.phoneNumber</td>
+        <td>@entity.PatientId</td>
+        <td>@entity.Gender</td>
+        <td>
+
+            <a asp-action="ShowPatientProfile" asp-route-id="@entity.PatientId" type="button" class="btn btn-dark edit-btn" style="text-decoration : none;">
+                كل التفاصيل
+            </a>
+
+            <a asp-action="Edit" asp-route-id="@entity.PatientId" type="button" class="btn btn-dark edit-btn" style="text-decoration : none;">
+                تعديل
+            </a>
+
+
+            <button type="button" class="btn btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#myModalDelete_@entity.PatientId">
+                حذف
+            </button>
+
+            <div class="modal fade" id="myModalDelete_@entity.PatientId" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="PopUpDiv">
+                                <form asp-controller="@ViewBag.controllerName" asp-action="Delete" asp-route-id="@entity.PatientId" method="post">
+                                    <input type="hidden" asp-for="@entity.PatientId" />
+
+                                    <div class="mb-3">
+                                        <h4>هل أنت متأكد أنك تريد حذف   @ViewBag.theEntity؟</h4>
+
+                                        <p><strong>اسم  @ViewBag.theEntity:</strong> @entity.Name</p>
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <a class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+}

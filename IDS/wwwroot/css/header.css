@@ -1,0 +1,87 @@
+﻿header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #4e2d48; */
+   /* background: rgb(4, 4, 67);*/
+    padding: 15px 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.7s;
+    margin-bottom: 15px;
+}
+
+   /* header:hover {
+      
+    }
+*/
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color : white;
+}
+.logo h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+header h3 {
+    color: white;
+    margin-top : 10px;
+}
+
+header #searchBox {
+    position: absolute;
+    margin-right: 400px;
+    margin-top: 18px;
+    width: 500px;
+    border: 1.5px solid;
+    border-color: #003c8f;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+.auth-buttons a {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sign-out , .sign-up {
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    /* border: 2px solid white; */
+    transition: 0.5s;
+}
+
+    .sign-out:hover ,  .sign-up:hover {
+        color: #fff;
+        background-color: black;
+        box-shadow: 3px 3px 7px rgba(255, 255, 255, 0.7), -3px -3px 7px rgba(255, 255, 255, 0.7); /* Add multiple shadows */
+    }
+
+
+    /*.sign-up:hover {
+        color: #fff;
+        background-color: black;
+        box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.7), -5px -5px 10px rgba(255, 255, 255, 0.7);*/ /* Add multiple shadows */
+    /*}*/

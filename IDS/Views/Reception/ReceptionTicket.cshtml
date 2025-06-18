@@ -1,0 +1,178 @@
+﻿@model IDS.Models.TicketVM
+
+@{
+    ViewData["Title"] = "Reception ticket Page";
+}
+
+@{
+    //ViewData["Title"] = ViewBag.thePluralEntity;
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reception View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="~/css/ReceptionTicket.css" rel="stylesheet">
+    <link href="~/css/Error.css" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+    <!-- Success Container -->
+    <div class="success-container" id="successContainer">
+        @if (TempData["Success"] != null)
+        {
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <div class="success-content">
+                    <div class="success-title">Done.</div>
+                    <div class="success-details">@TempData["Success"]</div>
+                </div>
+                <button class="close-btn" onclick="closeMessage(this)">×</button>
+            </div>
+        }
+    </div>
+
+    <!-- Error Container -->
+    <div class="error-container" id="errorContainer">
+        @if (TempData["Error"] != null || TempData["Errors"] != null)
+        {
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <div class="error-content">
+                    <div class="error-title">Error</div>
+                    <div class="error-details">
+                        @if (TempData["Error"] != null)
+                        {
+                            <h3>@TempData["Error"]</h3>
+                        }
+
+                        @if (TempData["Errors"] is IEnumerable<string> errors && errors.Any())
+                        {
+                            <ul>
+                                @foreach (var error in errors)
+                                {
+                                    <li>@error</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+                <button class="close-btn" onclick="closeMessage(this)">×</button>
+            </div>
+        }
+    </div>
+
+
+    <img src="~/Icons/logo.png" alt="logo">
+    <img src="~/Icons/logo-aun.png" alt="assiut" id="assiut">
+    <img src="~/Icons/FOfDentist.jpg" alt="teeth" id="teeth">
+
+    <div class="text">
+        <h1>Free Clinics Admission From OutPatient</h1>
+    </div>
+    <h1 id="fill">إستمارة دخول بالمجان للعيادات الخارجية</h1>
+
+    <div class="date-container">
+        <label>تاريخ الكشف:</label>
+        <input type="date" name="تاريخ الكشف" class="date">
+    </div>
+
+    <div class="form-container">
+
+
+        @{string properRouting = TempData["New"] != null && (bool)TempData["New"] ? "CreateTicketForNewPatient" : "CreateTicketForExistingPatient";}
+            <form asp-action="@properRouting" method="post">
+        
+          
+            <h2>البيانات الشخصية</h2>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>الاسم رباعي:</label>
+                    <input asp-for="Name" type="text">
+                </div>
+                <div class="form-group">
+                    <label>العنوان:</label>
+                    <input asp-for="Address" type="text">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>رقم الهاتف:</label>
+                    <input asp-for="phoneNumber" type="text">
+                </div>
+                <div class="form-group">
+                    <label>المهنة:</label>
+                    <input asp-for="profession" type="text">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>الرقم القومي:</label>
+                    <input asp-for="PatientId" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>السن:</label>
+                    <input asp-for="Age" type="text">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>النوع:</label>
+                    <select asp-for="Gender">
+                        <option value="Male">ذكر</option>
+                        <option value="Female">أنثى</option>
+                    </select>
+                </div>
+            </div>
+
+    
+            <div class="submit-container d-flex links">
+                <button type="submit" class="btn btn-primary submit-btn" style="width : 50%;  margin-left : 16px;"> حفظ و إرسال</button>
+
+
+                <a asp-controller="Reception" asp-action="Index" class="btn btn-primary submit-btn" style="text-decoration : none; width : 30%;">
+                    العودة إلى قائمة المستخدمين
+                </a>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+                function closeMessage(button) {
+            const message = button.closest('.error-message, .success-message');
+            message.classList.add('hide');
+            setTimeout(() => {
+                message.remove();
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const messages = document.querySelectorAll('.error-message, .success-message');
+            messages.forEach(msg => {
+                setTimeout(() => {
+                    msg.classList.add('hide');
+                    setTimeout(() => {
+                        msg.remove();
+                    }, 300);
+                }, 50000); // auto-dismiss after 50 seconds
+            });
+        });
+    </script>
+</body>
+</html>

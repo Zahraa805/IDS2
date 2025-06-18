@@ -1,0 +1,117 @@
+﻿**Tutorial: Loading Partial Views Using Query String and ViewBag in ASP.NET Core MVC**
+
+In this tutorial, you'll learn how to dynamically load partial views into a main view using JavaScript (AJAX), a query string, and ViewBag. This is useful for building a dashboard-like interface where different sections (patients, doctors, employees, etc.) are loaded without reloading the entire page.
+
+---
+
+### 🌍 1. The Scenario
+You have a main view (e.g., Admin Dashboard) that includes a placeholder for partial views. You want to:
+- Load a partial view (like a list of patients) based on a user action.
+- Redirect to the main view **and auto-load** a specific partial view.
+
+---
+
+### 🔍 2. Using Query Strings to Load a Partial View
+
+**Step 1: JavaScript to Parse the Query String**
+In your main layout view (e.g., `Index.cshtml`), add this script:
+
+```html
+<script>
+    window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const load = urlParams.get('load');
+        if (load) {
+            loadPartialView('/' + load);
+        }
+    };
+</script>
+```
+
+**Explanation:**
+- `URLSearchParams` reads the query string (e.g., `?load=Patients/ShowAll`).
+- If `load` exists, it calls your `loadPartialView(url)` function to insert the content.
+
+---
+
+### 🌐 3. Using ViewBag to Load a Partial View After POST Redirect
+
+If you're returning to the main view using a POST request (like a delete or edit action), you can't use a query string easily. Instead, pass the partial name via `ViewBag`.
+
+**Controller:**
+```csharp
+[HttpPost]
+public IActionResult Index(string load)
+{
+    ViewBag.LoadPartial = load;
+    return View();
+}
+```
+
+**View Script:**
+```html
+<script>
+    window.onload = function () {
+        const viewBagLoad = '@ViewBag.LoadPartial';
+        if (viewBagLoad) {
+            loadPartialView('/' + viewBagLoad);
+        }
+    };
+</script>
+```
+
+---
+
+### ⚡️ 4. Merge Both Scripts to Handle Any Case
+
+```html
+<script>
+    window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryLoad = urlParams.get('load');
+
+        if (queryLoad) {
+            loadPartialView('/' + queryLoad);
+        }
+
+        const viewBagLoad = '@ViewBag.LoadPartial';
+        if (viewBagLoad) {
+            loadPartialView('/' + viewBagLoad);
+        }
+    };
+</script>
+```
+
+This ensures the right partial view loads regardless of whether it's passed via query string or `ViewBag`.
+
+---
+
+### 🔙 5. Redirecting Using a POST Form (Hidden Redirect)
+If you want to go back to the main view **after editing or deleting**, and load a specific partial:
+
+**Form:**
+```html
+<form id="redirectForm" method="post" asp-controller="Admin" asp-action="Index">
+    <input type="hidden" name="load" value="Patients/ShowAll" />
+</form>
+
+<a href="#" onclick="document.getElementById('redirectForm').submit();">Return to Patients</a>
+```
+
+**Explanation:**
+- This sends a POST request to `/Admin/Index` with the value `load=Patients/ShowAll`.
+- The controller reads it and stores it in `ViewBag.LoadPartial`, which the view uses to trigger the script.
+
+---
+
+### ✅ Summary
+| Method | When to Use | How It Works |
+|--------|--------------|---------------|
+| **Query String** | When redirecting via URL (GET) | `?load=Patients/ShowAll` is read using `URLSearchParams` |
+| **ViewBag** | When redirecting via form POST | Controller sets `ViewBag.LoadPartial` and view reads it |
+| **Merged Script** | Supports both | Combines both methods in one `window.onload` |
+
+---
+
+Now you're able to handle dynamic redirection and partial view rendering like a pro 🚀. Let me know if you want a full working example or integration with buttons and layout.
+

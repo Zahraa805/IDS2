@@ -1,0 +1,84 @@
+﻿
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1; /* This pushes the footer down */
+}
+
+.but {
+    background-color: #003c8f;
+    width: 150px;
+    color: white;
+    transition: 0.7s;
+}
+    .but:hover {
+        /*            background-color: rgb(1, 1, 44);
+*/ color: #fff;
+        background-color: black;
+        box-shadow: 5px 5px 10px rgba(4, 4, 67, 0.9), -5px -5px 10px rgba(255, 255, 255, 0.7); /* Add multiple shadows */
+    }
+
+h2 {
+    margin: 20px 0;
+    color: #003c8f;
+    text-align: center;
+}
+
+table {
+    margin-top: 20px;
+    background-color: white;
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+
+#container {
+    width: 40%;
+    display: none;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 26px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.7s;
+}
+
+    #container:hover {
+        background-color: rgb(215, 224, 227);
+    }
+
+
+    #container h4 , .PopUpDiv h4 {
+        color: #003c8f;
+    }
+
+.PopUpDiv {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 26px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.7s;
+}
+
+.PopUpDiv:hover {
+    background-color: rgb(215, 224, 227);
+}
+
+
+
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+

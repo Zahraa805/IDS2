@@ -1,0 +1,144 @@
+﻿/* Shared container styles */
+.error-container,
+.success-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 400px;
+    width: 90%;
+   
+}
+
+/* Error message style */
+.error-message {
+    background-color: rgba(220, 53, 69, 0.95); /* red background */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.3s ease-out;
+    border-right: 4px solid #dc3545;
+}
+
+    .error-message i {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .error-message .error-content {
+        flex: 1;
+    }
+
+    .error-message .error-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-family: 'Lalezar', system-ui;
+        font-size : 22px;
+    }
+
+    .error-message .error-details {
+        font-size: 19px;
+        opacity: 0.9;
+    }
+
+    .error-message .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0 5px;
+        font-size: 18px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+        .error-message .close-btn:hover {
+            opacity: 1;
+        }
+
+    .error-message.hide {
+        animation: slideOut 0.3s ease-in forwards;
+    }
+
+/* Success message style (same structure, green theme) */
+.success-message {
+    background-color: rgba(40, 167, 69, 0.95); /* green background */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.3s ease-out;
+    border-right: 4px solid #28a745;
+}
+
+    .success-message i {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .success-message .success-content {
+        flex: 1;
+    }
+
+    .success-message .success-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-family: 'Lalezar', system-ui;
+        font-size: 22px;
+    }
+
+    .success-message .success-details {
+        font-size: 19px;
+        opacity: 0.9;
+    }
+
+    .success-message .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0 5px;
+        font-size: 18px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+        .success-message .close-btn:hover {
+            opacity: 1;
+        }
+
+    .success-message.hide {
+        animation: slideOut 0.3s ease-in forwards;
+    }
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

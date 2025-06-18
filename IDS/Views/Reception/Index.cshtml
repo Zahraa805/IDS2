@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Reception Page";
+    Layout = null;
+} 
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هيئة التسجيل و الإحصاء</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="~/css/Reception.css">
+    <link rel="stylesheet" href="~/css/Error.css">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <style>
+        import url('https://fonts.googleapis.com/css2?family=Badeen+Display&family=Lalezar&family=Rakkas&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Success Container -->
+    <div class="success-container" id="successContainer">
+        @if (TempData["Success"] != null)
+        {
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <div class="success-content">
+                    <div class="success-title">Done.</div>
+                    <div class="success-details">@TempData["Success"]</div>
+                    <div class="success-details">رقم التذكرة : @TempData["TicketId"]</div>
+
+                </div>
+                <button class="close-btn" onclick="closeMessage(this)">×</button>
+            </div>
+        }
+    </div>
+
+    <!-- Error Container -->
+    <div class="error-container" id="errorContainer">
+        @if (TempData["Error"] != null)
+        {
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <div class="error-content">
+                    <div class="error-title">Error</div>
+                    <div class="error-details">@TempData["Error"]</div>
+                </div>
+                <button class="close-btn" onclick="closeMessage(this)">×</button>
+            </div>
+        }
+    </div>
+
+
+    <!-- Header -->
+    <header>
+        <h1 class="lalezar-regular">مرحبًا بك في الصفحه الرئيسيه لهيئة التسجيل و الإحصاء </h1>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container d-flex align-items-center justify-content-center" style="margin-top: 100px;">
+        <div class="content-box">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <!-- زائر جديد -->
+                <div class="col">
+                    <div class="feature-box clickable" data-controller="Reception" data-action="CreateTicketForNewPatient">
+                        <i class="fa-solid fa-user icon"></i>
+                        <h3>تذكرة لزائر جديد</h3>
+                        <p>تسجيل بيانات زائر لأول مرة</p>
+                    </div>
+                </div>
+
+                <!-- حسابي -->
+                <div class="col">
+                    <div class="feature-box clickable" data-controller="Auth" data-action="Details">
+                        <i class="fa-solid fa-user-cog icon"></i>
+                        <h3>حسابي</h3>
+                        <p>عرض الحساب الشخصي</p>
+                    </div>
+                </div>
+
+                <!-- التقارير-->
+                <div class="col">
+                    <div class="feature-box clickable" data-controller="Reports" data-action="Index">
+                        <i class="fa-solid fa-chart-line icon"></i>
+                        <h3>التقارير</h3>
+                        <p>عرض التقارير والإحصائيات</p>
+                    </div>
+                </div>
+
+                <!-- بحث عن تذكرة -->
+                <div class="col">
+                    <div class="feature-box form-type" data-controller="Reception" data-action="ShowFullTicket">
+                        <i class="fa-solid fa-search icon"></i>
+                        <h3>طباعة تذكرة</h3>
+                        <p>من هنا يمكنك عرض  و طباعة بيانات التذكرة</p>
+                        <form asp-action="ShowFullTicket" method="post">
+                            <input type="text" name="id" class="form-control mb-2" placeholder="رقم التذكرة" required>
+                            <button type="submit" class="btn btn-dark w-100">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ملف المريض -->
+
+            <!--    <div class="col">
+                    <div class="feature-box form-type" data-controller="Reception" data-action="PatientDetails">
+                        <i class="fa-solid fa-folder icon"></i>
+                        <h3>ملف المريض</h3>
+                        <p>عرض بيانات المريض والتذاكر الخاصة به</p>
+                        <form asp-action="PatientDetails" method="post">
+                            <input type="text" name="nationalId" class="form-control mb-2" placeholder="الرقم القومي" required>
+                            <button type="submit" class="btn btn-dark w-100">إرسال</button>
+                        </form>
+                    </div>
+                </div> -->
+
+                <!--  تذكره لزائر جديد-->
+                <div class="col">
+                    <div class="feature-box form-type" data-controller="Reception" data-action="CreateTicketForExistingPatient">
+                        <i class="fa-solid fa-heart-pulse icon"></i>
+                        <h3>تذكرة لزائر موجود</h3>
+                        <p>إذا كان الزائر مسجل من قبل ادخل الرقم القومي</p>
+                        <form asp-action="CreateTicketForExistingPatient" method="get">
+                            <input type="text" name="id" class="form-control mb-2" placeholder="الرقم القومي" required>
+                            <button type="submit" class="btn btn-dark w-100">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>جميع الحقوق محفوظة © 2025 | تم تطوير نظام IDS*</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".clickable").forEach(app => {
+                app.addEventListener("click", function () {
+                    var controller = this.getAttribute("data-controller");
+                    var action = this.getAttribute("data-action");
+
+                    if (controller) {
+                        action = action || "Index";
+                        var actionUrl = `@Url.Action("__ACTION__", "__CONTROLLER__")`
+                            .replace("__ACTION__", action)
+                            .replace("__CONTROLLER__", controller);
+
+                        window.location.href = actionUrl;
+                    }
+                });
+            });
+        });
+
+        function closeMessage(button) {
+            const message = button.closest('.error-message, .success-message');
+            message.classList.add('hide');
+            setTimeout(() => {
+                message.remove();
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const messages = document.querySelectorAll('.error-message, .success-message');
+            messages.forEach(msg => {
+                setTimeout(() => {
+                    msg.classList.add('hide');
+                    setTimeout(() => {
+                        msg.remove();
+                    }, 300);
+                }, 50000); // auto-dismiss after 50 seconds
+            });
+        });
+    </script>
+</body>
+</html>

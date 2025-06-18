@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetion-view</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- <link href="ReceptionTicket.css" rel="stylesheet"> -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .date-container {
+            margin-bottom: 20px;
+        }
+
+        .date-container input {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .containers-wrapper {
+          width: 600px;
+          background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
+        .container2 {
+            width: 100%;
+            text-align: right;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: rgb(4, 4, 67);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.4s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: rgb(15, 15, 16);
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="logo">
+    <img src="assiut.png" alt="assiut" id="assiut">
+    <img src="teeth.png" alt="teeth" id="teeth">
+
+    <div class="text">
+        <h1>Free Clinics Admission From OutPatient</h1>
+    </div>
+    <h1 id="fill">إستمارة دخول بالمجان للعيادات الخارجية</h1>
+    
+    <div class="date-container">
+        <label>تاريخ الكشف:</label>
+        <input type="date" name="تاريخ الكشف" class="date">
+    </div>
+
+    <form asp-action="CreateTicketForNewPatient" method="post">
+        <div class="containers-wrapper">
+            <div class="container2">
+                <h2>البيانات الشخصية</h2>
+                <div class="field">
+                    <label>الاسم رباعي:</label>
+                    <input asp-for="Name" type="text">
+                </div>
+                <div class="field">
+                    <label>العنوان:</label>
+                    <input asp-for="Address" type="text">
+                </div>
+                <div class="field">
+                    <label>رقم الهاتف:</label>
+                    <input asp-for="phoneNumber" type="text">
+                </div>
+                <div class="field">
+                    <label>المهنة:</label>
+                    <input asp-for="profession" type="text">
+                </div>
+                <div class="field">
+                    <label>الرقم القومي:</label>
+                    <input asp-for="PatientId" type="text">
+                </div>
+                <div class="field">
+                    <label>النوع:</label>
+                    <select asp-for="Gender" class="form-control">
+                        <option value="Male">ذكر</option>
+                        <option value="Female">أنثي</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="age">السن:</label>
+                    <input asp-for="Age" type="text" name="السن">
+                </div>
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">حفظ و إرسال</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

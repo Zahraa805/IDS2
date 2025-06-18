@@ -1,0 +1,258 @@
+﻿body {
+    background: url('./images/tooth-background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Header Styling - تم التعديل هنا */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    position: relative;
+    height: 150px; /* زيادة الارتفاع */
+    margin-bottom: 10px; /* تقليل المسافة السفلية */
+}
+
+#logo-right {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120px; /* زيادة الحجم */
+    display: flex;
+    align-items: center;
+}
+
+#logo-left {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120px; /* زيادة الحجم */
+    display: flex;
+    align-items: center;
+}
+
+#logo-center {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+#logo-right img,
+#logo-left img {
+    width: auto;
+    height: 120px; /* زيادة حجم الصور */
+    object-fit: contain;
+}
+
+#logo-center img {
+    width: 140px; /* تكبير لوجو المركز */
+    height: auto;
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+/* Title Styling - تم تعديل المسافات */
+.title-container {
+    text-align: center;
+    margin: 15px 0; /* تقليل المسافات */
+    margin-top: 80px; /* تقليل المسافة من الأعلى */
+}
+
+    .title-container h1 {
+        color: #0A2140;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding-top: 0;
+    }
+
+    .title-container h2 {
+        color: #333;
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+/* Form Styling */
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(29, 102, 136, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(29, 102, 136, 0.05);
+}
+
+    .form-container:hover {
+        box-shadow: 0 8px 25px rgba(29, 102, 136, 0.15);
+        transform: translateY(-2px);
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+/* Table Styling */
+.appointments-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+    .appointments-table thead {
+        background-color: #1D6688;
+        color: white;
+    }
+
+    .appointments-table th {
+        padding: 12px 10px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid #1D6688;
+    }
+
+    .appointments-table td {
+        padding: 10px 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    .appointments-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+.action-btn {
+    margin: 2px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f85d73;
+}
+
+    .delete-btn:hover {
+        background-color: #e54c62;
+    }
+
+.edit-btn {
+    background-color: #333;
+}
+
+    .edit-btn:hover {
+        background-color: #111;
+        color : white;
+    }
+
+.confirm-btn {
+    background-color: #0d86e3;
+}
+
+    .confirm-btn:hover {
+        background-color: #0a6cbf;
+    }
+
+/* Send Now Button Styling */
+.send-btn {
+    background-color: #1D6688;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .send-btn:hover {
+        background-color: #155a77;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* Bootstrap Grid Overrides */
+.row {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+    direction: rtl;
+}
+
+    .form-group select:focus {
+        border-color: #1D6688;
+        box-shadow: 0 0 5px rgba(29, 102, 136, 0.5);
+        outline: none;
+    }
+
+.footer p {
+    font-weight: bold;
+    font-size: large;
+}

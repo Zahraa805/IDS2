@@ -1,0 +1,251 @@
+﻿@model IDS.Models.ViewModels.PatientProfileVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Clinics Admission From Outpatient</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/PatientProfile.css">
+    <link rel="stylesheet" href="~/css/popup.css">
+
+</head>
+
+<body>
+
+
+
+    <!-- Error Popup -->
+    <div id="errorPopup" class="popup-overlay">
+        <div class="popup-content error">
+            <h3>خطأ</h3>
+            <p id="error-message">@TempData["Error"]</p>
+            <button class="popup-button" onclick="closePopup('errorPopup')">إغلاق</button>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-content success">
+            <h3>@TempData["success"]</h3>
+
+            <button class="popup-button" onclick="closePopup('successPopup')">حسناً</button>
+        </div>
+    </div>
+
+
+    <div class="header">
+        <div class="logo-container" id="logo-left">
+            <img src="~/Icons/logo-aun.png" alt="Assiut University Logo">
+        </div>
+        <div class="logo-container" id="logo-center">
+            <img src="~/Icons/logo.png" alt="IDS Logo">
+        </div>
+        <div class="logo-container" id="logo-right">
+            <img src="~/Icons/FOfDentist.jpg" alt="College Logo">
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Title -->
+        <div class="title-container">
+            <h1>Patient Profile & Ticket Details</h1>
+            <h2>بيانات المريض وتفاصيل زياراته و التذاكر الخاصه به</h2>
+        </div>
+
+        <!-- Patient Information Form -->
+        <div class="form-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>الاسم رباعي</label>
+                        <input type="text" class="form-control" value="@Model.Name" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" class="form-control" value="@Model.phoneNumber" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>الرقم القومي</label>
+                        <input type="text" class="form-control" value="@Model.PatientId" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>العنوان</label>
+                        <input type="text" class="form-control" value="@Model.Address" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>العمر</label>
+                        <input type="number" class="form-control" value="@Model.Age" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>النوع</label>
+                        <input type="text" class="form-control" value="@Model.Gender" readonly />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Table -->
+        <table class="appointments-table">
+            <thead class="table-light">
+                <tr>
+                    <th>رقم التذكرة</th>
+                    <th>تاريخ التذكرة</th>
+                    <th>العيادة المحول إليها</th>
+                    <th>تاريخ الزيارة القادمة</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Tickets != null && Model.Tickets.Any())
+                {
+                    foreach (var ticket in Model.Tickets)
+                    {
+                        <tr>
+                            <td>@ticket.TicketId</td>
+                            <td>@ticket.AppointmentDate.ToString("yyyy-MM-dd HH:mm")</td>
+
+
+                            <td>
+                                @{
+                                    var referredNames = new List<string>();
+                                    if (ticket.ReferredTo != null)
+                                    {
+                                        if (ticket.ReferredTo.Oral) referredNames.Add("Oral med. & Perio");
+                                        if (ticket.ReferredTo.RemovableProsth) referredNames.Add("Removable prosth");
+                                        if (ticket.ReferredTo.Operative) referredNames.Add("Operative");
+                                        if (ticket.ReferredTo.Endodontic) referredNames.Add("Endodontic");
+                                        if (ticket.ReferredTo.Ortho) referredNames.Add("Ortho");
+                                        if (ticket.ReferredTo.CrownAndBridge) referredNames.Add("Crown & Bridge");
+                                        if (ticket.ReferredTo.Surgery) referredNames.Add("Surgery");
+                                        if (ticket.ReferredTo.Pedo) referredNames.Add("Pedo");
+                                        if (ticket.ReferredTo.XRay) referredNames.Add("X-ray");
+                                    }
+
+                                    var result = string.Join(" - ", referredNames);
+                                }
+                                @result
+                            </td>
+
+
+
+                            <td>@(ticket.NextDate.HasValue ? ticket.NextDate.Value.ToString("yyyy-MM-dd") : "-")</td>
+                            <td>
+                                <a asp-controller="Ticket" asp-action="Edit" asp-route-id=@ticket.TicketId class="btn btn-warning btn-sm action-btn edit-btn">تعديل</a>
+                                <a asp-controller="Ticket" asp-action="Print" asp-route-id=@ticket.TicketId class="btn btn-success btn-sm action-btn confirm-btn">طباعة</a>
+
+
+                                <button type="button" class="btn btn-danger btn-sm action-btn delete-btn" data-bs-toggle="modal" data-bs-target="#myModalDelete_@ticket.TicketId">
+                                    حذف
+                                </button>
+
+                                <div class="modal fade" id="myModalDelete_@ticket.TicketId" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <div class="modal-body"> 
+                                                <div class="PopUpDiv">
+                                                    <form asp-controller="@ViewBag.controllerName" asp-action="Delete" asp-route-id="@ticket.TicketId" method="post">
+                                                        <input type="hidden" asp-for="@ticket.TicketId" />
+
+                                                        <div class="mb-3">
+                                                            <h4>هل أنت متأكد أنك تريد حذف   @ViewBag.theEntity؟</h4>
+
+                                                            <p><strong>رقم  @ViewBag.theEntity:</strong> @ticket.TicketId</p>
+                                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                                            <a class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</a>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">لا توجد تذاكر لعرضها.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Send Now Button -->
+        <div class="text-center mt-3">
+            <form id="redirectForm" method="post" asp-controller="Admin" asp-action="Index">
+                <input type="hidden" name="load" value="Patient/ShowAll" />
+            </form>
+
+            <a href="#" onclick="document.getElementById('redirectForm').submit();" class="btn btn-primary send-btn">
+                العودة إلى قائمة المرضى
+            </a>    
+        </div>
+
+        <!-- Footer -->
+        <div class="footer mt-5 text-center">
+            <p>جميع الحقوق محفوظة © 2025 | تم تطوير نظام IDS*</p>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        window.onload = function () {
+            var error = "@TempData["Error"]";
+            var success = "@TempData["success"]";
+
+            if (error && error.trim() !== "") {
+                document.getElementById("errorPopup").style.display = "flex";
+            }
+
+            if (success && success.trim() !== "") {
+                document.getElementById("successPopup").style.display = "flex";
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

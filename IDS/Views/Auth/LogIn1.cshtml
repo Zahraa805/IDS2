@@ -1,0 +1,80 @@
+﻿@model IDS.Models.ViewModels.LogInVm
+
+@{
+    ViewData["Title"] = "SignUp Page";
+}
+
+@{
+    //ViewData["Title"] = ViewBag.thePluralEntity;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styleLogin&SignUp.css">
+    <!-- أيقونات -->
+    <link rel="stylesheet" href="~/css/all.min.css">
+@*     <style>
+        import url('https://fonts.googleapis.com/css2?family=Badeen+Display&family=Rakkas&display=swap');
+    </style> *@
+
+</head>
+<body style="direction: rtl;">
+    <div class="container">
+
+        <div class="imagelogo">
+            <img src="~/Images/image.png" alt="صورة">
+        </div>
+
+        <div class="box">
+
+            <h1 class="loginHello">أهلاً بكم</h1>
+            <h5> الرجاء ادخال اسم المستخدم و كلمة السر </h5>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger" style="padding : 30px;">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                           // if (error.ErrorMessage == "اسم المستخدم او كلمه المرور غير صحيحة" || error.ErrorMessage == "ادخل بيانات صحيحه")
+                          //  {
+                                <li>@error.ErrorMessage</li>
+                              //  break;
+                           // }
+                        }
+
+                    </ul>
+                </div>
+            }
+
+
+            <form asp-action="LogIn" method="post">
+                <div class="input-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input asp-for="UserName" type="text" placeholder="اسم المستخدم">
+                    <span asp-validation-for="UserName" class="text-danger" id="UserNameSpan"></span>
+
+                </div>
+
+                <div class="input-group">
+                    <img src="~/Icons/lock.png" alt="قفل">
+                    <input asp-for="Password" type="password" placeholder="كلمة السر">
+                    <span asp-validation-for="Password" class="text-danger" id="PasswordSpan"></span>
+                </div>
+
+                <input type="submit" value="تسجيل الدخول">
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+</html>

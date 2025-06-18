@@ -1,0 +1,89 @@
+﻿/* Background */
+body {
+    font-family: 'Tajawal', Arial, sans-serif;
+    background: url("../Images/IdsBackGround.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    color: white;
+    margin: 0;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Centering the Container */
+.container {
+    /* height: 100vh; */
+    margin-top: 100px;
+}
+
+/* Content Box */
+.content-box {
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Feature Box */
+.feature-box {
+    background-color: rgb(2,136,173,0.95);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+    .feature-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background: rgb(1, 1, 44);
+        transform: translateY(-5px) rotateY(15deg) rotateX(10deg);
+        /* color: white; */
+    }
+
+
+/* Icons */
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Form Box */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form */
+form {
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+}
+
+    form button {
+        width: 100px;
+    }
+
+input {
+    text-align: right;
+}
